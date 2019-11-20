@@ -1,7 +1,9 @@
-pkg install wget
-pkg install git
+
 
 su
+exit
+
+pkg install wget
 
 export fileid=1XZWoue74_0nhHHrVblT27WAds8zv-j2c
 export filename=kodi.zip
@@ -23,11 +25,9 @@ curl -L -b cookies.txt -o $filename \
 rm -f confirm.txt cookies.txt
 
 
-wget http://mirrors.kodi.tv/releases/android/arm64-v8a/kodi-18.5-Leia-arm64-v8a.apk
+wget -O kodi.apk http://mirrors.kodi.tv/releases/android/arm64-v8a/kodi-18.5-Leia-arm64-v8a.apk
 
-pm install kodi-18.5-Leia-arm64-v8a.apk
+pm install kodi.apk
 
-rm -r storage/shared/Android/data/org.xbmc.kodi/
-mv org.xbmc.kodi/files storage/Shared/Android/data/org.xbmc.kodi/
-
-rm -r kodi-18.5-Leia-arm64-v8a.apk kodi.zip kodi
+rm -r storage/shared/Android/data/org.xbmc.kodi/files
+mv org.xbmc.kodi/files storage/Shared/Android/data/org.xbmc.kodi/files
