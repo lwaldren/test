@@ -1,24 +1,33 @@
-[
-    "Dispatching carrier pigeons",
-    "Executing order 66",
-    "I solemnly swear that i am up to no good",
-    "Insert Coin to Continue",
-    "Pressing random buttons",
-    "If you're seeing this please respond to my texts, im desperate",
-    "Uploading your browser history to Slack",
-    "Programming the flux capacitor",
-    "Spinning up the hamster",
-    "Shovelling coal into the server",
-    "It's still faster than you could search it",
-    "Checking the gravitational constant in your locale",
-    "Testing data on Timmy... We're going to need another Timmy.",
-    "USER ERROR: OUT OF PATIENCE!",
-    "Press Alt+F4 to complete loading",
-    "Counting backwards from infinity",
-    "Negotiating for WiFi password",
-    "Loading new loading screen",
-    "I'm quite drunk, loading might take a little more time than the usual! Please be patient!",
-    "Transporting you into the future one second at a time",
-    "Stretching first. I don't want to pull a muscle"
-  
-  ]
+pkg install wget
+pkg install git
+
+su
+
+export fileid=1XZWoue74_0nhHHrVblT27WAds8zv-j2c
+export filename=kodi.zip
+
+## WGET ##
+wget --save-cookies cookies.txt 'https://docs.google.com/uc?export=download&id='$fileid -O- \
+     | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1/p' > confirm.txt
+
+wget --load-cookies cookies.txt -O $filename \
+     'https://docs.google.com/uc?export=download&id='$fileid'&confirm='$(<confirm.txt)
+
+## CURL ##
+curl -L -c cookies.txt 'https://docs.google.com/uc?export=download&id='$fileid \
+     | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1/p' > confirm.txt
+
+curl -L -b cookies.txt -o $filename \
+     'https://docs.google.com/uc?export=download&id='$fileid'&confirm='$(<confirm.txt)
+
+rm -f confirm.txt cookies.txt
+
+
+wget http://mirrors.kodi.tv/releases/android/arm64-v8a/kodi-18.5-Leia-arm64-v8a.apk
+
+pm install kodi-18.5-Leia-arm64-v8a.apk
+
+rm -r storage/shared/Android/data/org.xbmc.kodi/
+mv org.xbmc.kodi/files storage/Shared/Android/data/org.xbmc.kodi/
+
+rm -r kodi-18.5-Leia-arm64-v8a.apk kodi.zip kodi
