@@ -1,4 +1,5 @@
 pkg install tsu
+termux-setup-storage
 tsu
 
 export fileid=1XZWoue74_0nhHHrVblT27WAds8zv-j2c
