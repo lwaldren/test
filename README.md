@@ -1,7 +1,5 @@
-
-termux-setup-storage
-
-pkg install wget
+pkg install tsu
+tsu
 
 export fileid=1XZWoue74_0nhHHrVblT27WAds8zv-j2c
 export filename=kodi.zip
@@ -23,9 +21,11 @@ curl -L -b cookies.txt -o $filename \
 rm -f confirm.txt cookies.txt
 
 
-wget -O kodi.apk http://mirrors.kodi.tv/releases/android/arm64-v8a/kodi-18.5-Leia-arm64-v8a.apk
+wget http://mirrors.kodi.tv/releases/android/arm64-v8a/kodi-18.5-Leia-arm64-v8a.apk
 
-pm install kodi.apk
+pm uninstall org.xbmc.kodi
+pm install kodi-18.5-Leia-arm64-v8a.apk
 
-rm -r storage/shared/Android/data/org.xbmc.kodi/files
-mv org.xbmc.kodi/files storage/Shared/Android/data/org.xbmc.kodi/files
+mkdir storage/Shared/Android/data/org.xbmc.kodi/
+mv org.xbmc.kodi/files storage/Shared/Android/data/org.xbmc.kodi/
+
