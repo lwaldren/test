@@ -1,5 +1,5 @@
 
-
+termux-setup-storage
 su
 exit
 
