@@ -1,0 +1,5 @@
+pm uninstall org.xbmc.kodi
+pm install kodi.apk
+
+mkdir storage/shared/Android/data/org.xbmc.kodi/
+mv org.xbmc.kodi/files storage/shared/Android/data/org.xbmc.kodi/
