@@ -1,5 +1,8 @@
-pkg install tsu, wget
+
 termux-setup-storage
+pkg update
+pkg install tsu
+pkg install wget
 
 export fileid=1XZWoue74_0nhHHrVblT27WAds8zv-j2c
 export filename=kodi.zip
