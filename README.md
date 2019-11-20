@@ -1,12 +1,11 @@
 
 termux-setup-storage
-pkg update
-pkg install tsu
-pkg install wget
+apt-get update
+apt-get install -y tsu
+apt-get install -y wget
 
 
 
 wget -O kodi.apk http://mirrors.kodi.tv/releases/android/arm64-v8a/kodi-18.5-Leia-arm64-v8a.apk
 wget -O installer.sh https://raw.githubusercontent.com/lwaldren/test/master/installer
-chmod a+X installer.sh 
 tsu
