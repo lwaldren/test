@@ -1,7 +1,5 @@
 
 termux-setup-storage
-su
-exit
 
 pkg install wget
 
